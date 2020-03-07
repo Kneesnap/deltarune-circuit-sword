@@ -11,7 +11,9 @@ function depends_deltarune() {
 }
 
 function install_bin_deltarune() {
-    wget -O- -q https://github.com/Kneesnap/deltarune-circuit-sword/releases/download/latest/deltarune.tar.gz | tar -xvz -C "$md_inst"
+    sudo mkdir "$md_inst"
+    sudo mkdir "$md_inst/Deltarune/"
+    sudo wget -O- -q https://github.com/Kneesnap/deltarune-circuit-sword/releases/download/latest/deltarune.tar.gz | tar -xvz -C "$md_inst"
 }
 
 function configure_deltarune() {
