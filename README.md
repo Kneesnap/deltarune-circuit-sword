@@ -27,11 +27,10 @@ A rough outline of what you'll need to do is:
 3. Using the GMAssetCompiler bundled in GMS1 v466, you can build your project. You may want to lower the size of texture pages if your game freezes on you and does not respond.  
 4. Compatibility changes.  
 
-List of changes you will need to make (Likely an incomplete list):  
- - Replace all instances of game_end() with a script you create called game_stop(). The script you make should have an error inside it, such as using a non-existant error. This is unfortunately because the runner is buggy and needs an error to exit.  
- - For the first 5 frames of a new room, disable drawing. For some bizarre reason, this crashes the runner. I believe it may be having to do with dynamic sprite management. Use draw_enable_drawevent(false); to disable. It would be best to put this on a persistent object that has an event for room start, then an alarm set to 5, which will enable it.  
+List of changes you will need to make (Likely an incomplete list):   
  - The method variable_global_exists does not work. It should be replaced with code that works without this functionality. This function will crash when run.   
  - Add gamepad functions for each keyboard function. Otherwise, you can't play with a controller. The circuit sword button ids are non-standard for some reason, so if you want, so I listed them below.  
+  - **If the game boots, but freezes upon loading a room:** For the first 5 frames of a new room, disable drawing. For some bizarre reason, this crashes the runner. I believe it may be having to do with dynamic sprite management. Use draw_enable_drawevent(false); to disable. It would be best to put this on a persistent object that has an event for room start, then an alarm set to 5, which will enable it. 
   
 And, there could easily be more issues which I have not discovered yet.  
 ini files seem to have some strange behavior, so don't be surprised if you run into that.
@@ -64,7 +63,7 @@ If you need help finding other buttons, I'd recommend asking me for help or writ
 
 
 ### Special Thanks:
-Toby Fox - Creating Undertale + Deltarune. Even if you don't like my work, I love yours!  
+Toby Fox - Creating Undertale + Deltarune, being an awesome dude.
 krzys-h - Creating [UndertaleModTool](https://github.com/krzys-h/UndertaleModTool/), which made this possible.  
 YoYoGames - Creating GameMaker: Studio, and the original (albeit broken) Raspberry Pi runner.  
 Kite - Designing the Circuit Sword, and using a screen buffer program which is compatible with dispmanx.
